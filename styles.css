@@ -93,7 +93,7 @@ nav{
     width: 116px;
     height: auto; /*Toma el tamaño del contenido*/
     border: 2px solid var(--very-light-gray);
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 16px 16px 0px 16px;
     position: absolute;
     background-color: var(--white);
@@ -124,14 +124,72 @@ nav{
     display: inline-block;
 }
 
+/*Estilos para el menú mobile*/
+.mobile-menu{
+    background-color: var(--white);
+    border-top:2px solid;
+    border-color: var(--very-light-gray);
+    position: absolute;
+    padding: 20px;
+    height: 80%;
+    width: 100%;
+    left: 0%;
+    box-sizing: border-box;
+    top: 58px;
+}
+.mobile-menu a{
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+}
+.mobile-menu ul{
+    padding: 0px;
+    list-style: none;
+    margin: 0px;
+}
+.mobile-menu div~ul{
+    position: absolute;
+    bottom: 20px;
+}
+.mobile-menu div ul:nth-child(1){
+    border-bottom: 2px solid var(--very-light-gray);
+}
+.mobile-menu ul li{
+    margin: 0px 0px 20px 0px;
+}
+.mobile-menu div ul:nth-child(2){
+    margin: 20px 0px 0px 0px;
+}
+.mobile-menu .email{
+    color: var(--very-light-gray);
+    font-size: var(--sm);
+    font-weight: light;
+}
+.mobile-menu .sign-out{
+    font-size: var(--sm);   
+    color: var(--hospital-green);
+}
+.mobile-menu div + ul li:nth-child(2){
+    margin: 0px;
+}
+
 @media (max-width: 640px){
     .menu{
         display: block;
+    }
+    .desktop-menu{
+        display: none;
     }
     .nav-left ul{
         display: none;
     }
     .nav-email{
+        display: none;
+    }
+}
+
+@media (min-width: 640px){
+    .mobile-menu{
         display: none;
     }
 }
