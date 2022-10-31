@@ -65,6 +65,8 @@ function addProducts(arr){
         const product_img_cart = document.createElement('img');    
         product_img_cart.setAttribute('src', './icons/bt_add_to_cart.svg');
     
+        /*Se agrega la maquetación al HTML*/
+
         product_inf_figure.appendChild(product_img_cart);
     
         product_inf_div.appendChild(product_price);
