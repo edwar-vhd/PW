@@ -73,6 +73,7 @@ nav{
 }
 .nav-cart{
     position: relative;
+    cursor: pointer;
 }
 .nav-cart div{
     width: 16px;
@@ -90,9 +91,9 @@ nav{
     color: var(--white);
 }
 
-
-/*Estilos del menú desplegable derecha*/
-
+/*----------------------------------------*/
+/*Estilos del menú del usuario, escritorio*/
+/*----------------------------------------*/
 .desktop-menu{
     width: 184px;
     height: auto; /*Toma el tamaño del contenido*/
@@ -156,7 +157,9 @@ nav{
     display: inline-block;
 }
 
-/*Estilos para el menú mobile*/
+/*--------------------------------*/
+/*Estilos para el menú hamburguesa*/
+/*--------------------------------*/
 .mobile-menu{
     background-color: var(--white);
     border-top: 1px solid;
@@ -318,19 +321,13 @@ aside{
     font-weight: bold;
 }
 
-/*Cards*/
+/*Cards del menú general*/
 .cards-container{
-    margin-top: 24px;
+    margin: 24px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 200px);
-    gap: 16px;
+    gap: 24px;
     place-content: center;
-}
-.product{
-    padding-bottom: 4px;
-}
-.product-card{
-    display: grid;
 }
 .product-card img{
     width: 200px;
@@ -342,7 +339,7 @@ aside{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0px;
+    margin-top: 4px;
 }
 .product-inf figure{
     margin: 0px;
@@ -364,7 +361,7 @@ aside{
     color: var(--very-light-gray);
 }
 
-/*Aside produt detail*/
+/*Aside products detail*/
 .cart-btn{
     align-items: center; /*Alinear vertical*/
     display: grid;
@@ -378,7 +375,7 @@ aside{
     width: 100%;
     height: 360px;
     object-fit: cover; /*Ajusta la imagen dentro del área que lo contiene*/
-    border-radius: 0px 0px 32px 32px;
+    border-radius: 32px;
 }
 .close{
     position: absolute;

@@ -9,6 +9,9 @@ const product_container = document.querySelector('.product-container');
 
 const cards_container = document.querySelector('.cards-container');
 
+/*Boton flecha atras del menú del carrito*/
+const btn_aside_back = document.querySelector('.title-container img');
+
 const products = [];
 
 products.push({
@@ -86,7 +89,9 @@ addProducts(products);
 
 nav_email.addEventListener('click', show_hide);
 menuHamb.addEventListener('click',toogleMenuHamb);
+
 nav_cart.addEventListener('click',toogleCart);
+btn_aside_back.addEventListener('click',toogleCart);
 
 function show_hide(){
     if(!desktop_menu.classList.contains('inactive')){
