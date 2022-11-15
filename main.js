@@ -12,6 +12,10 @@ const cards_container = document.querySelector('.cards-container');
 /*Boton flecha atras del menú del carrito*/
 const btn_aside_back = document.querySelector('.title-container img');
 
+const productDetail = document.querySelector('.productDetail');
+
+const aside = document.querySelector('aside');
+
 const products = [];
 
 products.push({
@@ -49,38 +53,39 @@ function addProducts(arr){
     for(product of arr){
         const product_card = document.createElement('div');
         product_card.classList.add('product-card');
-    
+
         const img = document.createElement('img');
         img.setAttribute('src',product.image);
-    
+        img.addEventListener('click', openAside);
+
         const product_inf = document.createElement('div');
-        product_inf.classList.add('product-inf');   
-    
+        product_inf.classList.add('product-inf');
+
         const product_inf_div = document.createElement('div');
-    
+
         const product_price = document.createElement('p');
         product_price.innerText = '$' + product.price;
-    
-        const product_name = document.createElement('p');    
+
+        const product_name = document.createElement('p');
         product_name.innerText = product.name;
-    
-        const product_inf_figure = document.createElement('figure');    
-        const product_img_cart = document.createElement('img');    
+
+        const product_inf_figure = document.createElement('figure');
+        const product_img_cart = document.createElement('img');
         product_img_cart.setAttribute('src', './icons/bt_add_to_cart.svg');
-    
+
         /*Se agrega la maquetación al HTML*/
 
         product_inf_figure.appendChild(product_img_cart);
-    
+
         product_inf_div.appendChild(product_price);
         product_inf_div.appendChild(product_name);
-    
+
         product_inf.appendChild(product_inf_div);
         product_inf.appendChild(product_inf_figure);
-    
+
         product_card.appendChild(img);
         product_card.appendChild(product_inf);
-    
+
         cards_container.appendChild(product_card);
     }
 }
@@ -112,7 +117,7 @@ function toogleMenuHamb(){
         mobile_menu.classList.toggle('inactive');
         product_container.classList.toggle('inactive');
     }
-    
+
 }
 
 function toogleCart(){
@@ -128,3 +133,20 @@ function toogleCart(){
         product_container.classList.toggle('inactive');
     }
 }
+
+function openAside(){
+    productDetail.classList.remove('inactive');
+}
+
+// Detectar scroll automaticamente
+window.onscroll = function (e) {
+    if (window.scrollY <= 61){
+        aside.style.height = (window.innerHeight-61+window.scrollY)+"px";
+        aside.style.top = (61-window.scrollY)+"px";
+    } else {
+        aside.style.height = (window.innerHeight)+"px";
+        aside.style.top = "0px";
+    }
+    console.log(window.innerHeight);
+    // console.log(window.scrollY);
+};
