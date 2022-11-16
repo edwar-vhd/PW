@@ -13,8 +13,11 @@ const cards_container = document.querySelector('.cards-container');
 const btn_aside_back = document.querySelector('.title-container img');
 
 const productDetail = document.querySelector('.productDetail');
+const closeProductDetail = document.querySelector('.close');
 
 const aside = document.querySelector('aside');
+const main = document.querySelector('main');
+
 
 const products = [];
 
@@ -98,6 +101,8 @@ menuHamb.addEventListener('click',toogleMenuHamb);
 nav_cart.addEventListener('click',toogleCart);
 btn_aside_back.addEventListener('click',toogleCart);
 
+closeProductDetail.addEventListener('click',closeAside);
+
 function show_hide(){
     if(!desktop_menu.classList.contains('inactive')){
         desktop_menu.classList.toggle('inactive');
@@ -130,23 +135,40 @@ function toogleCart(){
         if(!desktop_menu.classList.contains('inactive')){
             desktop_menu.classList.toggle('inactive');
         }
+        if(!productDetail.classList.contains('inactive')){
+            closeAside();
+        }
         product_container.classList.toggle('inactive');
     }
 }
 
 function openAside(){
     productDetail.classList.remove('inactive');
+    main.style.gridTemplateColumns = "auto 360px";
+
+    if(!product_container.classList.contains('inactive')){
+        product_container.classList.toggle('inactive');
+    }
+}
+
+function closeAside(){
+    productDetail.classList.add('inactive');
+    main.style.gridTemplateColumns = "auto 0px";
 }
 
 // Detectar scroll automaticamente
 window.onscroll = function (e) {
     if (window.scrollY <= 61){
-        aside.style.height = (window.innerHeight-61+window.scrollY)+"px";
+        aside.style.height = (window.innerHeight-60+window.scrollY)+"px";
         aside.style.top = (61-window.scrollY)+"px";
+
+        productDetail.style.height = (window.innerHeight-60+window.scrollY)+"px";
+        productDetail.style.top = (61-window.scrollY)+"px";
     } else {
         aside.style.height = (window.innerHeight)+"px";
         aside.style.top = "0px";
+
+        productDetail.style.height = (window.innerHeight)+"px";
+        productDetail.style.top = "0px";
     }
-    console.log(window.innerHeight);
-    // console.log(window.scrollY);
 };
