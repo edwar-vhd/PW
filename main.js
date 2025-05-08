@@ -52,6 +52,24 @@ products.push({
     image:'https://images.pexels.com/photos/6797632/pexels-photo-6797632.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 
+products.push({
+    name:'Producto-01',
+    price:120.00,
+    image:'https://images.pexels.com/photos/6797632/pexels-photo-6797632.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+
+products.push({
+    name:'Producto-01',
+    price:120.00,
+    image:'https://images.pexels.com/photos/6797632/pexels-photo-6797632.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+
+products.push({
+    name:'Producto-01',
+    price:120.00,
+    image:'https://images.pexels.com/photos/6797632/pexels-photo-6797632.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+
 function addProducts(arr){
     for(product of arr){
         const product_card = document.createElement('div');
@@ -95,25 +113,27 @@ function addProducts(arr){
 
 addProducts(products);
 
-nav_email.addEventListener('click', show_hide);
+// Eventos para mostrar y ocular el menu sin tener que hacer click
+nav_email.addEventListener('mouseenter', () => {
+    desktop_menu.classList.remove('inactive');
+});
+nav_email.addEventListener('mouseleave', () => {
+    setTimeout(() => {
+        if (!desktop_menu.matches(':hover')) {
+            desktop_menu.classList.add('inactive');
+        }
+    }, 100);
+});
+desktop_menu.addEventListener('mouseleave', () => {
+    desktop_menu.classList.add('inactive');
+});
+
 menuHamb.addEventListener('click',toogleMenuHamb);
 
 nav_cart.addEventListener('click',toogleCart);
 btn_aside_back.addEventListener('click',toogleCart);
 
 closeProductDetail.addEventListener('click',closeAside);
-
-function show_hide(){
-    if(!desktop_menu.classList.contains('inactive')){
-        desktop_menu.classList.toggle('inactive');
-    }else{
-        if(!product_container.classList.contains('inactive')){
-            product_container.classList.toggle('inactive');
-        }
-        desktop_menu.classList.toggle('inactive');
-    }
-
-}
 
 function toogleMenuHamb(){
     if(product_container.classList.contains('inactive')){
@@ -131,9 +151,6 @@ function toogleCart(){
     }else{
         if(!mobile_menu.classList.contains('inactive')){
             mobile_menu.classList.toggle('inactive');
-        }
-        if(!desktop_menu.classList.contains('inactive')){
-            desktop_menu.classList.toggle('inactive');
         }
         if(!productDetail.classList.contains('inactive')){
             closeAside();

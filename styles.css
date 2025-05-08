@@ -341,6 +341,7 @@ aside{
     width: 200px;
     height: 200px;
     border-radius: 32px;
+    cursor: pointer;
     object-fit: cover;
 }
 .product-inf{
@@ -464,7 +465,7 @@ aside{
         grid-template-columns: auto 0px !important;
     }
     .productDetail{
-        display: none;
+        width: 100%;
     }
 }
 
